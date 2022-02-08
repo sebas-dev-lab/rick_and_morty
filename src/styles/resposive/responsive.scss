@@ -2,6 +2,7 @@
 $media: screen;
 $feature_min: min-width;
 $feature_max: max-width;
+$value_base: 100px;
 $value_cero: 400px;
 $value_one: 580px;
 $value_two: 768px;
@@ -9,6 +10,7 @@ $value_three: 991px;
 $value_four: 1199px;
 $value_five: 1400px;
 $value_six: 1800px;
+$value_seven: 1801px;
 $template_color: rgba(255, 255, 255, 0.494);
 
 
@@ -41,6 +43,32 @@ $template_color: rgba(255, 255, 255, 0.494);
 //  ========================== NAVBAR COMPOENNT =========================== //
 
 @media ($feature_max: $value_cero) {
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      .topImg{
+        width: 100px;
+        height: 40px;
+        margin-left: 5px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      ul {
+        padding: 0;
+      }
+      .topList--item{
+        margin: 5px;
+      }
+      &--topleft{
+        .topIcon{
+          margin: 2px;
+        }
+      }
+    }
+  } ;
+
+
+  @media ($feature_min: $value_six) {
     .navbar {
       display: flex;
       justify-content: space-around;

@@ -8,7 +8,7 @@
     "docs": "jsdoc -c jsdoc.conf.json",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "deploy":"aws s3 sync dist/ s3://sebastianding --acl public-read --no-verify-ssl"
+    "deploy": "aws s3 sync dist/ s3://sebastianding --acl public-read"
   },
   "keywords": [],
   "author": "",
