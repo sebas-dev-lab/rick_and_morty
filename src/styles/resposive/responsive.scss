@@ -1,0 +1,66 @@
+
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_cero: 400px;
+$value_one: 580px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 1199px;
+$value_five: 1400px;
+$value_six: 1800px;
+$template_color: rgba(255, 255, 255, 0.494);
+
+
+//  ========================== SEARCH COMPOENNT =========================== //
+
+@media ($feature_max: $value_cero) {
+  @include generic_search($cero_Select_pd, $cero_Select_wd);
+}
+
+@media ($feature_min: $value_cero) and ($feature_max: $value_one) {
+  @include generic_search($one_Select_pd, $one_Select_wd);
+}
+
+@media ($feature_min: $value_one) and ($feature_max: $value_two) {
+  @include generic_search($two_Select_pd, $two_Select_wd);
+}
+
+@media ($feature_min: $value_two) and ($feature_max: $value_three) {
+  @include generic_search($three_Select_pd, $three_Select_wd);
+}
+
+@media ($feature_min: $value_three) and ($feature_max: $value_four) {
+  @include generic_search($four_Select_pd, $four_Select_wd);
+}
+
+@media ($feature_min: $value_four) {
+  @include generic_search($five_Select_pd, $five_Select_wd);
+}
+
+//  ========================== NAVBAR COMPOENNT =========================== //
+
+@media ($feature_max: $value_cero) {
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      .topImg{
+        width: 100px;
+        height: 40px;
+        margin-left: 5px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      ul {
+        padding: 0;
+      }
+      .topList--item{
+        margin: 5px;
+      }
+      &--topleft{
+        .topIcon{
+          margin: 2px;
+        }
+      }
+    }
+  } ;

@@ -1,0 +1,61 @@
+@mixin generic_search($sel_pd, $sel_wd) {
+  .box-search {
+    background-color: $basic_bg_ligth_color;
+    display: flex;
+    flex-direction: column;
+    padding: $box_search_pad;
+    .search-container-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: $container_search_wd;
+      .basic-sarch-container {
+        display: flex;
+        flex-direction: row;
+        width: $basic_search_wd;
+        select {
+          font-size: smaller;
+          padding: $sel_pd;
+          width: $sel_wd;
+          box-shadow: $basic_bxs_ligth_color;
+        }
+        &--inputText {
+          padding-left: $basic_search_input_text_pd;
+          width: $basic_search_input_text_wd;
+          box-shadow: $basic_bxs_ligth_color;
+        }
+        .submit-basicInptu {
+          box-shadow: $basic_bxs_ligth_color;
+        }
+      }
+      .search-advance-btn {
+        margin: $advance_search_btn_mg;
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+    .search-advance-menu {
+      display: flex;
+      flex-direction: column;
+      padding: $advance_search_menu_pd_one;
+      .advance-btn-togle {
+        display: flex;
+        .submit-basicInptu {
+          width: $advance_search_menu_wd;
+          padding: $advance_search_menu_pd_two;
+        }
+      }
+      .search-filter-text {
+        font-size: smaller;
+        input {
+          padding: $advance_search_menu_pd_two;
+        }
+      }
+      .input-radio {
+        input {
+          margin: $advance_search_menu_mg;
+        }
+      }
+    }
+  }
+} ;

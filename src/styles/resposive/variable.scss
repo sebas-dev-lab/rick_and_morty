@@ -1,0 +1,64 @@
+// ============================== GEMERAL VARIABLES ============================= //
+
+// Basic light Variables
+$basic_bg_ligth_color_one: #f0f0f0;
+$basic_bg_ligth_color: rgba(255, 255, 255, 0.494);
+$basic_bg_ligtth_color_two: #07afc5;
+$basic_bg_ligtth_color_three: #0691a3;
+$basic_bg_ligtth_color_four: #028ea0;
+$basic_bxs_ligth_color: 100px 50px 50px 20px #f0f0f0;
+$text_color: #666;
+$text_color_one: #fff;
+
+// Basic dark Variables
+$basic_bg_dark_color_one: #f0f0f0;
+$basic_bg_dark_color: rgba(255, 255, 255, 0.494);
+$basic_bg_dark_color_two: #07afc5;
+$basic_bg_dark_color_three: #0691a3;
+$basic_bg_dark_color_four: #028ea0;
+$basic_bxs_dark_color: 100px 50px 50px 20px #f0f0f0;
+$text_color: #666;
+$text_color_one: #fff;
+
+
+// ============================== SEARCH COMPONENT ============================= //
+// Generic variables
+
+$box_search_pad: 5px;
+$container_search_wd: 100%;
+$basic_search_wd: 100%;
+$basic_search_input_text_pd: 10px;
+$basic_search_input_text_wd: 40%;
+$advance_search_btn_mg: 10px 0 0 50px;
+$advance_search_menu_pd_one: 10px;
+$advance_search_menu_pd_two: 5px;
+$advance_search_menu_wd: 50%;
+$advance_search_menu_mg: 0;
+
+// < 400
+$cero_Select_pd: 10px;
+$cero_Select_wd: 20%;
+
+// 400 > x < 580
+$one_Select_pd: 10px;
+$one_Select_wd: 16%;
+
+// 580 > x < 768
+$two_Select_pd: 10px;
+$two_Select_wd: 12%;
+
+// 768 > x < 991
+$three_Select_pd: 10px;
+$three_Select_wd: 9%;
+
+// 991 > x < 1199
+$four_Select_pd: 10px;
+$four_Select_wd: 6%;
+
+// 1199 > x < 1400
+$five_Select_pd: 7px;
+$five_Select_wd: 5%;
+
+// 1400 > x < 1800
+$six_Select_pd: 7px;
+$six_Select_wd: 15%;

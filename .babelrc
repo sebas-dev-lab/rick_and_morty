@@ -1,0 +1,5 @@
+// ES6 - ES5 Transpile configurations && JSX Code.
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [["@babel/transform-runtime"]]
+}

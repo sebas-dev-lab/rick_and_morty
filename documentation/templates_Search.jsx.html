@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: templates/Search.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: templates/Search.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import searchMock from "../mocks/searchMocks";
+import Basics from "../helpers/Basics";
+import { useNavigate } from "react-router-dom";
+import BasicSearch from "../components/conjugate_components/BasicSearch";
+import AdvacnceSearch from "../components/conjugate_components/AdvacnceSearch";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../Redux/Actions/local.actions";
+
+/**
+ * @component
+ * @returns
+ *
+ */
+const Search = () => {
+  const dispatch = useDispatch();
+  const { loading } = useSelector((store) => store.local);
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  // ============ Filters Inital States ================ //
+  const [selectBasicFilter, setSelectBasicFilter] = useState(
+    Basics.searchInitialStates("basic")
+  );
+  const [advanceFilters, setAdvanceFilters] = useState(
+    Basics.searchInitialStates("advance")
+  );
+
+  const handleOpen = () => {
+    /**
+     * Change between basic or advance filters. Set initial states when have changes.
+     */
+    setSelectBasicFilter(Basics.searchInitialStates("basic"));
+    setAdvanceFilters(Basics.searchInitialStates("advance"));
+    setOpen(!open);
+  };
+
+  //   ================== Basic filters functions =================== //
+  const handleSelectBasicFilter = (e) => {
+    /**
+     * Set value for type basic filter
+     * @param {*} e
+     *
+     */
+    setSelectBasicFilter({ ...selectBasicFilter, filter: e.target.value });
+  };
+
+  //   ======================== ========= ======================== //
+  const handleSetInputValuForBasicFilter = (e) => {
+    /**
+     * Set values for advance filters
+     * @param {*} e
+     */
+    setSelectBasicFilter({ ...selectBasicFilter, input: e.target.value });
+  };
+
+  //   ================== Advance filters functions =================== //
+
+  const handleSetInputValueForAdvanceFilter = (e, type) => {
+    if (type) {
+      let reset = Object.assign({}, advanceFilters[type]);
+      for (let i in advanceFilters[type]) {
+        if (e.target.name == i) {
+          reset[i] = !reset[i];
+        } else {
+          reset[i] = false;
+        }
+      }
+      setAdvanceFilters({ ...advanceFilters, [type]: reset });
+    } else {
+      setAdvanceFilters({
+        ...advanceFilters,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
+  //   ================== Set query and reditect =================== //
+
+  const handleSearch = (basic) => {
+    let query = "";
+    let status = true;
+    if (basic) {
+      if (selectBasicFilter.input) {
+        dispatch(setLoading(true));
+        query = Basics.setQueryFilterToSearch(selectBasicFilter, false);
+      } else {
+        status = false;
+      }
+    } else {
+      dispatch(setLoading(true));
+      query = Basics.setQueryFilterToSearch(advanceFilters, true);
+    }
+    navigate(query, { replace: true });
+  };
+
+  //   ======================== ========= ======================== //
+
+  let setTypeFilter = () => {
+    /**
+     * Switch basic to advance component changes.
+     * @returns local component
+     */
+    return (
+      &lt;span
+        className={!open ? "search-advance-btn" : "search-advance-btn_to_basic"}
+      >
+        &lt;p onClick={handleOpen}>{!open ? "Advance search" : "Basic search"}&lt;/p>
+      &lt;/span>
+    );
+  };
+
+  //   ======================== ========= ======================== //
+
+  return (
+    &lt;div className="box-search">
+      &lt;div className="search-container-1">
+        {!open &amp;&amp; (
+          &lt;BasicSearch
+            basicSearchOptions={searchMock.basicSearchOptions}
+            selectBasicFilter={selectBasicFilter}
+            handleSelectBasicFilter={handleSelectBasicFilter}
+            setTypeFilter={setTypeFilter}
+            handleSearch={handleSearch}
+            handleSetInputValuForBasicFilter={handleSetInputValuForBasicFilter}
+          />
+        )}
+      &lt;/div>
+
+      {open &amp;&amp; (
+        &lt;AdvacnceSearch
+          handleSearch={handleSearch}
+          advanceSearchOptions={searchMock.advanceSearchOptions}
+          setTypeFilter={setTypeFilter}
+          advanceFilters={advanceFilters}
+          handleSetInputValueForAdvanceFilter={
+            handleSetInputValueForAdvanceFilter
+          }
+          inputTexts={searchMock.inputTexts}
+        />
+      )}
+    &lt;/div>
+  );
+};
+
+export default Search;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AdvacnceSearch.html">AdvacnceSearch</a></li><li><a href="API.html">API</a></li><li><a href="Basics.html">Basics</a></li><li><a href="BasicSearch.html">BasicSearch</a></li><li><a href="Card.html">Card</a></li><li><a href="CardsSection.html">CardsSection</a></li><li><a href="EnvConfig.html">EnvConfig</a></li><li><a href="Images.html">Images</a></li><li><a href="ImageSmallCircle.html">ImageSmallCircle</a></li><li><a href="InputRadio.html">InputRadio</a></li><li><a href="InputTexts.html">InputTexts</a></li><li><a href="LinkHrefText.html">LinkHrefText</a></li><li><a href="LinkText.html">LinkText</a></li><li><a href="NavBarTypeOne.html">NavBarTypeOne</a></li><li><a href="Search.html">Search</a></li><li><a href="SerialLinkTexts.html">SerialLinkTexts</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ButtonToSearch">ButtonToSearch</a></li><li><a href="global.html#useWindowSize">useWindowSize</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Feb 08 2022 09:40:54 GMT-0300 (Argentina Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
